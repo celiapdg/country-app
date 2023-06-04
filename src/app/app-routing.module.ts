@@ -19,6 +19,11 @@ const routes: Routes = [
     path: 'contact',
     component: ContactPageComponent
   },
+  // lazy loading: importamos el módulo principal (no el router) de countries
+  {
+    path: 'countries',
+    loadChildren: () => import('./countries/countries.module').then(m => m.CountriesModule)
+  },
   {
     path: '**',
     redirectTo: ''
